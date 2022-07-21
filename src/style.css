@@ -1,0 +1,35 @@
+
+.iconstyle{
+    color: white;
+    font-size: 26px;
+    display: inline;
+    vertical-align: middle;
+}
+
+.iconstyle:hover{
+    color: rgb(0, 0, 0);
+    font-size: 26px;
+    display: inline;
+    vertical-align: middle;
+}
+
+.logo{
+    display: flex;
+    align-items: center
+}
+
+.iconmain{
+    margin-left: 10px;
+    color: white;
+    font-size: 26px;
+    display: inline;
+    vertical-align: middle;
+}
+
+.namelogo{
+    margin-left: 10px;
+}
+
+img {
+    max-width: 100%;
+}
