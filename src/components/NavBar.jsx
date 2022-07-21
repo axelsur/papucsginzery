@@ -4,13 +4,21 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+
+import Logo from '../img/logo.svg';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function NavbarPapucs() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand className="logo" href="#home">
+          <img width="50px" height="auto" className="img-responsive" src={Logo}  alt="logo" />
+          {' '}
+          <h2>Papucs</h2>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className='ms-auto'>
