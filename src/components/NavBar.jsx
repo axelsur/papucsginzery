@@ -5,6 +5,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+import CartWidget from './CartWidget';
+
+
+import { BsCart3 } from "react-icons/bs";
 import Logo from '../img/logo.svg';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -32,8 +36,10 @@ function NavbarPapucs() {
 
             <Nav.Link href="#pricing">Contactos</Nav.Link>
           </Nav>
-          
         </Navbar.Collapse>
+        <Navbar.Collapse className="justify-content-end">
+            <CartWidget/>
+        </Navbar.Collapse>       
       </Container>
     </Navbar>
   );
