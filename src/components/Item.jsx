@@ -99,7 +99,8 @@ const Item = ({item}) => {
           <BsSearch />
         </Icon>
         <Icon>
-          <BsCartPlus />
+          <BsCartPlus/>
+          
         </Icon>
       </Info>
     </Container>
