@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import "./style.css"
 
@@ -10,7 +9,6 @@ function App() {
   return (
     <>
       <NavbarPapucs/>
-      <h2 className="text-center">Pagina React</h2>
       <ItemListContainer titulo={"Lista Productos"}/>
       <Footer/>
     </>

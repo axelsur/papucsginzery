@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
-import { BsCart3, BsFacebook, BsInstagram, BsTwitter, BsPinterest, BsGeoAlt, BsTelephone, BsEnvelope  } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsTwitter, BsPinterest, BsGeoAlt, BsTelephone, BsEnvelope  } from "react-icons/bs";
 
 const Container = styled.div`
   display: flex;
   background-color: #212529;
+  margin-top: 10px;
 
   ${mobile({ flexDirection: "column" })}
 `;

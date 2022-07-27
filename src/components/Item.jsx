@@ -25,6 +25,8 @@ const Info = styled.div`
 `;
 
 const Nombre = styled.div`
+  font-family: Futura;
+  font-size: 25px;
   position: absolute;
   margin-top: 486px;
   height: 75%;
