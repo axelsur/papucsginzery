@@ -1,10 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import { Modal } from "react-bootstrap";
-
 import Carousel from 'react-bootstrap/Carousel';
-
 import "../style.css";
-
 
 
 const ZoomModal = (props) => {

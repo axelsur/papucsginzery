@@ -27,7 +27,7 @@ const BuyModal = (props) => {
 
   const addCart = (cantidad) =>{
     setCant(cantidad)
-    console.log ("Cantidad a agregar al carrito: ",cant);
+    console.log ("Cantidad a agregar al carrito: ", cantidad);
   }
   
   return (
