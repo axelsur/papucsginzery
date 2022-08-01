@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useState} from 'react'
+import BuyModal from "./BuyModal";
+import ZoomModal from './ZoomModal';
+
 
 import {
     BsHeart,
@@ -6,104 +9,42 @@ import {
     BsCartPlus,
 }from "react-icons/bs";
 
-import styled from "styled-components";
-
-const Info = styled.div`
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease;
-  cursor: pointer;
-`;
-
-const Nombre = styled.div`
-  font-family: Futura;
-  font-size: 25px;
-  position: absolute;
-  margin-top: 486px;
-  height: 75%;
-  text-align:center;
-  z-index: 2;
-  visibility: hidden;
-`;
-
-const Container = styled.div`
-  flex: 1;
-  margin: 5px;
-  min-width: 280px;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5fbfd;
-  position: relative;
-  &:hover ${Info}{
-    opacity: 1;
-  }
-  &:hover ${Nombre}{
-    visibility: visible; 
-  }
-`;
-
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-`;
-
-const Image = styled.img`
-  height: 55%;
-  border-radius: 50%;
-  z-index: 2;
-`;
-
-const Icon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  transition: all 0.5s ease;
-  &:hover {
-    background-color: #e9f5f5;
-    transform: scale(1.1);
-  }
-`;
-
+import {ContainerItem,
+        Nombre,
+        Circle,
+        ImageItem,
+        Info,
+        Icon,
+} from '../styledcomponents'
 
 
 const Item = ({item}) => {
+
+  const [showBuy, setShowBuy] = useState(false);
+  const [showZoom, setShowZoom] = useState(false);
+
+  
   return (
-    <Container>
+    <ContainerItem>
       <Nombre>{item.nombre}</Nombre>
       <Circle />
-      <Image src={item.img} />
+      <ImageItem src={item.img} />
       <Info>
         <Icon>
           <BsHeart />
         </Icon>
         <Icon>
-          <BsSearch />
+          <BsSearch onClick={() => setShowZoom(true)} />
+          <ZoomModal show={showZoom}
+          item={item} 
+          onHide={() => setShowZoom(false)} />
         </Icon>
         <Icon>
-          <BsCartPlus/>
-          
+          <BsCartPlus onClick={() => setShowBuy(true)} />
+          <BuyModal show={showBuy} item={item} onHide={() => setShowBuy(false)} />
         </Icon>
       </Info>
-    </Container>
+    </ContainerItem>
   )
 }
 
