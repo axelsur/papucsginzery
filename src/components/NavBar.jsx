@@ -22,9 +22,9 @@ function NavbarPapucs() {
             <Nav.Link href="#features">Inicio</Nav.Link>
             
             <NavDropdown title="Productos" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Hombre</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Mujer</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Niños</NavDropdown.Item>
+              <NavDropdown.Item href="">Hombre</NavDropdown.Item>
+              <NavDropdown.Item href="">Mujer</NavDropdown.Item>
+              <NavDropdown.Item href="">Niños</NavDropdown.Item>
             </NavDropdown>
 
             <Nav.Link href="#pricing">Contactos</Nav.Link>

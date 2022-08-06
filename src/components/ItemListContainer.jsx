@@ -1,20 +1,34 @@
-import React from 'react'
 import { popularProducts } from "../data.js";
-import Item from "./Item";
+import ItemList from "./ItemList";
+import { useState, useEffect } from 'react'
 
-import {TituloILC,
-        ContainerILC       
-} from '../styledcomponents'
+
+
+import {TituloILC} from '../styledcomponents'
 
 const ItemListContainer = (props) => {
+
+  const [productos, setProductos] = useState([])
+
+  useEffect(() => {
+   
+    const getProductos = new Promise((res,rej) => {
+      setTimeout(() => {
+          res(popularProducts)
+      },2000)
+    })
+    getProductos.then((res)=>{
+      setProductos(res)
+    })
+ 
+  },)
+
   return (
-    <><TituloILC>{props.titulo}</TituloILC>
-    <ContainerILC>
-      {popularProducts.map((item) => (
-        <Item item={item} key={item.id} />
-      ))}
-    </ContainerILC></>    
+    <>
+    <TituloILC>{props.titulo}</TituloILC>
+    <ItemList items={productos}/>
+    </>    
   )
-}
+}   
 
 export default ItemListContainer
