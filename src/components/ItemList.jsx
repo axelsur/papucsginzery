@@ -7,7 +7,7 @@ const ItemList = ({items}) => {
     return (
         <ContainerILC>
             {items.map((item) => (
-            <Item item={item} key={item.id} />
+                <Item item={item} key={item.id} />
             ))}
         </ContainerILC>   
     );

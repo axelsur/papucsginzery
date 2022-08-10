@@ -1,12 +1,10 @@
 import React, { useState} from 'react'
-import BuyModal from "./BuyModal";
 import ZoomModal from './ZoomModal';
-
+import {Route} from 'react-router-dom'
 
 import {
     BsHeart,
     BsSearch,
-    BsCartPlus,
 }from "react-icons/bs";
 
 import {ContainerItem,
@@ -16,11 +14,12 @@ import {ContainerItem,
         Info,
         Icon,
 } from '../styledcomponents'
+import ItemDetailContainer from './ItemDetailContainer';
 
 
 const Item = ({item}) => {
 
-  const [showBuy, setShowBuy] = useState(false);
+  
   const [showZoom, setShowZoom] = useState(false);
 
   
@@ -40,8 +39,7 @@ const Item = ({item}) => {
           onHide={() => setShowZoom(false)} />
         </Icon>
         <Icon>
-          <BsCartPlus onClick={() => setShowBuy(true)} />
-          <BuyModal show={showBuy} item={item} onHide={() => setShowBuy(false)} />
+          <ItemDetailContainer itemid={item.id} />
         </Icon>
       </Info>
     </ContainerItem>

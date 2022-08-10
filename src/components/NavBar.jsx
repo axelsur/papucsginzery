@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from './CartWidget';
 import Logo from '../img/logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from 'react-router-dom'
 
 
 function NavbarPapucs() {
@@ -19,15 +20,16 @@ function NavbarPapucs() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className='ms-auto'>
-            <Nav.Link href="#features">Inicio</Nav.Link>
+              <Link className="navlink" to='/'>Inicio</Link>
             
-            <NavDropdown title="Productos" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="">Hombre</NavDropdown.Item>
-              <NavDropdown.Item href="">Mujer</NavDropdown.Item>
-              <NavDropdown.Item href="">Niños</NavDropdown.Item>
+            <NavDropdown title="Productos" id="collasible-nav-dropdown"> 
+              <Link className="linkdropdown" to='/categoria/hombre'>Hombre</Link>
+              <Link className="linkdropdown" to='/categoria/niño'>Niño</Link>
+              <Link className="linkdropdown" to='/categoria/mujer'>Mujer</Link>
+              <Link className="linkdropdown" to='/categoria/unisex'>Unisex</Link>
             </NavDropdown>
 
-            <Nav.Link href="#pricing">Contactos</Nav.Link>
+            <Nav.Link href="#contacto">Contacto</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
