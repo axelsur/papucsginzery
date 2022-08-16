@@ -1,10 +1,10 @@
 import React, { useState} from 'react'
 import ZoomModal from './ZoomModal';
-import {Route} from 'react-router-dom'
 
 import {
     BsHeart,
     BsSearch,
+    BsCartPlus,
 }from "react-icons/bs";
 
 import {ContainerItem,
@@ -14,7 +14,7 @@ import {ContainerItem,
         Info,
         Icon,
 } from '../styledcomponents'
-import ItemDetailContainer from './ItemDetailContainer';
+import {Link} from 'react-router-dom'
 
 
 const Item = ({item}) => {
@@ -39,9 +39,12 @@ const Item = ({item}) => {
           onHide={() => setShowZoom(false)} />
         </Icon>
         <Icon>
-          <ItemDetailContainer itemid={item.id} />
+
+          <Link style={{ color: 'black' }} to={`/producto/${item.id}`}  > <BsCartPlus /> </Link>
+        
         </Icon>
       </Info>
+      
     </ContainerItem>
   )
 }
