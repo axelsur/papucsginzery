@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {useContext, useState } from "react";
 import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemCount from "./ItemCount";
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom'
 
 
 import {Wrapper,
@@ -19,15 +20,22 @@ import {Wrapper,
         FilterSizeOption
 } from '../styledcomponents'
 
+import { myContext } from './CartContext'
+
 
 function ItemDetail(props) {
 
+  /* const {setCant, hideButton, setHideButton } = useContext(myContext) */
+
   const [cant, setCant] = useState(0);
 
-  const addCart = (cantidad) => {
+  const [hideButton, setHideButton] = useState(false)
+
+  const onAdd = (cantidad) =>{
     setCant(cantidad);
-    console.log("Cantidad a agregar al carrito: ", cantidad);
-  };
+    console.log("Cantidad a agregar al carrito: ",cantidad);
+    setHideButton(true);
+  }
 
   return (
     <>
@@ -63,7 +71,8 @@ function ItemDetail(props) {
                 </Stock>
               </StockContainer>
 
-              <ItemCount stock={props.item.stock} initial={0} onAdd={addCart} />
+              {hideButton ?  <Link className='btn btn-primary' to='/cart'>Finalizar compra</Link>
+                          :  <ItemCount stock={props.item.stock} initial={0} onAdd={onAdd} />} 
 
             </InfoContainer>
           </Wrapper>
