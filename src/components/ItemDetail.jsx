@@ -1,4 +1,4 @@
-import React, {useContext, useState } from "react";
+import React, {useRef, useEffect, useContext} from "react";
 import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemCount from "./ItemCount";
@@ -25,17 +25,21 @@ import { myContext } from './CartContext'
 
 function ItemDetail(props) {
 
-  /* const {setCant, hideButton, setHideButton } = useContext(myContext) */
-
-  const [cant, setCant] = useState(0);
-
-  const [hideButton, setHideButton] = useState(false)
+  const {addItem, cant, setCant, hideButton, setHideButton,setHayProductos } = useContext(myContext) 
 
   const onAdd = (cantidad) =>{
     setCant(cantidad);
-    console.log("Cantidad a agregar al carrito: ",cantidad);
+    /* console.log("Cantidad a agregar al carrito: ",cantidad); */
     setHideButton(true);
   }
+
+  const finCompra= ()=>
+  {
+    setHideButton(false);
+    setHayProductos(true)
+    addItem(props.item,cant)
+  }
+
 
   return (
     <>
@@ -67,11 +71,11 @@ function ItemDetail(props) {
                     <FilterSizeOption>42</FilterSizeOption>
                     <FilterSizeOption>44</FilterSizeOption>
                     <FilterSizeOption>46</FilterSizeOption>
-                  </FilterSize>
+                   </FilterSize> 
                 </Stock>
               </StockContainer>
 
-              {hideButton ?  <Link className='btn btn-primary' to='/cart'>Finalizar compra</Link>
+              {hideButton ?  <Link className='btn btn-primary' to='/cart' onClick={finCompra}>Finalizar compra</Link>
                           :  <ItemCount stock={props.item.stock} initial={0} onAdd={onAdd} />} 
 
             </InfoContainer>
