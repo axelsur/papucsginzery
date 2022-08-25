@@ -3,6 +3,13 @@
     display: flex;
 }
 
+.numCart{
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    margin-left: 6px;
+}
+
 .logo h2{
     margin-top: 7px;
     margin-left: 10px;

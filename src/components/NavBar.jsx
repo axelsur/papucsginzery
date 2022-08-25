@@ -6,9 +6,14 @@ import CartWidget from './CartWidget';
 import Logo from '../img/logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
+import { useContext } from 'react'
+import { myContext } from './CartContext'
 
 
 function NavbarPapucs() {
+
+  const {hayProductos,cantidadTotal} = useContext(myContext)
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -33,7 +38,9 @@ function NavbarPapucs() {
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
-            <CartWidget/>
+
+        {hayProductos ? <CartWidget cantidadCarrito={cantidadTotal}/>:<div></div>}
+            
         </Navbar.Collapse>       
       </Container>
     </Navbar>

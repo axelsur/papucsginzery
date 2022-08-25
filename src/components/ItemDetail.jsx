@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useContext} from "react";
+import React, {useContext} from "react";
 import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemCount from "./ItemCount";
@@ -75,7 +75,7 @@ function ItemDetail(props) {
                 </Stock>
               </StockContainer>
 
-              {hideButton ?  <Link className='btn btn-primary' to='/cart' onClick={finCompra}>Finalizar compra</Link>
+              {hideButton ?  <Link className='btn btn-primary' to='/cart' onClick={finCompra}>Terminar compra</Link>
                           :  <ItemCount stock={props.item.stock} initial={0} onAdd={onAdd} />} 
 
             </InfoContainer>
