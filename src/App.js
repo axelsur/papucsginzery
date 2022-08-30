@@ -1,14 +1,17 @@
-import './App.css';
+import './App.css'
 import "./style.css"
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
-import NavbarPapucs from './components/NavBar';
-import Footer  from './components/Footer';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import CartContext from './components/CartContext';
-import Cart from './components/Cart';
+import NavbarPapucs from './components/NavBar'
+import Footer  from './components/Footer'
+import ItemListContainer from './components/ItemListContainer'
+import ItemDetailContainer from './components/ItemDetailContainer'
+import CartContext from './components/CartContext'
+import Cart from './components/Cart'
+
+
+
 
 function App() {
   return (

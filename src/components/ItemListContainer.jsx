@@ -1,36 +1,55 @@
-import { popularProducts } from "../data.js";
 import ItemList from "./ItemList";
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-
-
-
 import {TituloILC} from '../styledcomponents'
+import Spinner from 'react-bootstrap/Spinner';
+import { db } from "../firebase.js";
+import { collection, getDocs, query, where } from "firebase/firestore";
+
+
+
 
 const ItemListContainer = (props) => {
 
   const [productos, setProductos] = useState([])
 
+  const[isLoadingList,setisLoadingList] = useState(false)
+
   const {idCategoria} = useParams()
 
   useEffect(() => {
    
-    const getProductos = new Promise((res,rej) => {
-      setTimeout(() => {
-      
-          if (!idCategoria){
-            res(popularProducts)
-          }
-          else
-          {
-            res(popularProducts.filter((producto)=>producto.tipo === idCategoria))
-          }
-        
-      },2000)
+    setisLoadingList(true)
+
+    let refCollectionProductos;
+    
+    if (!idCategoria){
+      refCollectionProductos = collection(db, "productos")  
+    }
+    else
+    {
+      refCollectionProductos = query(collection(db, "productos"), where('tipo','==',idCategoria))
+    }
+    
+    const consulta = getDocs(refCollectionProductos)
+    
+    consulta
+    .then(snapshot=>{
+       const productos = snapshot.docs.map(doc=>{
+        setisLoadingList(false)
+
+        return{
+          ...doc.data(),
+          id: doc.id
+        }
+
+       })
+       setProductos(productos)
+
     })
-    getProductos.then((res)=>{
-      setProductos(res)
-    })
+    .catch( err=>{
+        console.log(err)
+    }, [idCategoria])
  
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[idCategoria])
@@ -38,7 +57,13 @@ const ItemListContainer = (props) => {
   return (
     <>
     <TituloILC>{props.titulo}</TituloILC>
-    <ItemList items={productos}/>
+
+    {isLoadingList ?  <button className="btn btn-secondary text-center" style={{ display: "flex", margin: "auto" }} type="button" disabled>   
+                        <Spinner animation="border" style={{ width: "6rem", height: "6rem"}}/>
+                        <span style={{margin:"10px", marginTop:"35px"}}> Cargando ... </span>
+                      </button>
+                    :<ItemList items={productos}/>
+    }    
     </>    
   )
 }   
