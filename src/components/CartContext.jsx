@@ -21,6 +21,8 @@ export default function CartContext({ children }) {
     //Verifica si hay productos para el widget navbar.
     const [hayProductos, setHayProductos] = useState(false)
 
+    const [precioTotal, setprecioTotal] = useState(0)
+
 
     // Verifica si el item esta en el carrito.
     const isInCart=(itemCart,cart)=>
@@ -78,6 +80,9 @@ export default function CartContext({ children }) {
             cart.pop();
         }
         setHayProductos(false)
+        setprecioTotal(0)
+        setCantidadTotal(0)
+        
 
     }
 
@@ -101,10 +106,10 @@ export default function CartContext({ children }) {
 
   return (
     <>
-      <myContext.Provider value={{cant, setCant, hideButton, 
+      <myContext.Provider value={{cant, setCant, hideButton, precioTotal, setprecioTotal, 
                                   setHideButton, cart, setCart, itemCart, 
                                   setItemCart, cantidadTotal, setCantidadTotal, 
-                                  hayProductos, setHayProductos, addItem, removeItem}}>{children}</myContext.Provider>
+                                  hayProductos, setHayProductos, addItem, removeItem, clearCart}}>{children}</myContext.Provider>
     </>
   );
 }

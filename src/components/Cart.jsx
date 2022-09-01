@@ -13,9 +13,9 @@ import {Link} from 'react-router-dom'
 
 function Cart(props) {
 
-  const {cart,removeItem,setHayProductos,hayProductos } = useContext(myContext) 
+  const {cart,removeItem,setHayProductos,hayProductos, precioTotal, setprecioTotal } = useContext(myContext) 
 
-  const [precioTotal, setprecioTotal] = useState(0)
+  
 
 
   useEffect(() => {
@@ -92,6 +92,8 @@ function Cart(props) {
           </tbody>
 
           </Table>
+
+          
         :
         <section className= 'container-fluid' id="productos">
               <h1 className='text-start fs-2 fw-bold text-decoration-underline row justify-content-center mb-5 mt-5'>NO HAY ITEMS EN EL CARRITO</h1>
@@ -99,6 +101,11 @@ function Cart(props) {
         </section>
         }    
 
+      {hayProductos ?
+              <Link className='btn btn-secondary' to='/EndBuy' id='btn-detalle'>Finalizar compra</Link>
+              :
+              <div></div>
+      }
       </Card.Body>
     </Card>
 
