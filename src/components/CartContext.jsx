@@ -48,8 +48,6 @@ export default function CartContext({ children }) {
             if (cart[i].id === itemCart.id)
               cart[i].cantidad+=quantity
             }
-            console.log("repetido")
-            console.log(cart)
         }
        //Si el producto no está agregado al carrito, se lo agrega
         else

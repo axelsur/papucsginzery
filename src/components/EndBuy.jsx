@@ -26,12 +26,6 @@ export default function EndBuy() {
    
    function finCompra() {
       
-      debugger
-      console.log("Nombre: ", name)
-      console.log("Tel: ", tel)
-      console.log("Email: ", email)
-
-    
         const date = new Date();
         let day = date.getDate();
         let month = date.getMonth() + 1;
@@ -44,17 +38,12 @@ export default function EndBuy() {
           date: {fechaCompra},
           total: {precioTotal}
         };
-
-        console.log("ORDERRRRRRRRRRR: ", order)
   
         const ordersCollection = collection(db, "orders");
 
-        console.log("ORDER COLLECTION: ", ordersCollection)
-
         addDoc(ordersCollection, order)
         .then((res) => {
-          
-          console.log("entre al adddoc")
+    
             setIdOrder(res.id);
             Swal.fire({
               text: `Gracias por tu compra! Su numero de compra es: ${res.id}`,
@@ -65,8 +54,6 @@ export default function EndBuy() {
             
         
         })
-  
-        console.log("pase el adddoc y no hice una mierda")
   }
   
     return (
