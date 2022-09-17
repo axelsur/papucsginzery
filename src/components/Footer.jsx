@@ -9,11 +9,12 @@ import {Container,
         Center,
         Title,
         List,
-        ListItem,
         Right,
         ContactItem,
         Payment
 } from '../styledcomponents'
+import {Link} from 'react-router-dom'
+import "../style.css"
 
 const Footer = () => {
   return (
@@ -57,12 +58,13 @@ const Footer = () => {
       <Center>
         <Title>Links Rapidos</Title>
         <List>
-          <ListItem>Home</ListItem>
-          <ListItem>Productos</ListItem>
-          <ListItem>Hombre</ListItem>
-          <ListItem>Mujer</ListItem>
-          <ListItem>Niños</ListItem>
-          <ListItem>Mi Cuenta</ListItem>
+
+        <Link className="footlink" to='/'>Home</Link>
+        <Link className="footlink" to='/categoria/hombre'>Hombre</Link>
+        <Link className="footlink" to='/categoria/niño'>Niño</Link>
+        <Link className="footlink" to='/categoria/mujer'>Mujer</Link>
+        <Link className="footlink" to='/categoria/unisex'>Unisex</Link>
+
         </List>
       </Center>
       <Right>

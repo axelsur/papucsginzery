@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
 import { useContext } from 'react'
 import { myContext } from './CartContext'
+import "../style.css";
 
 
 function NavbarPapucs() {

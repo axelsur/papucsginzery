@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from 'react-bootstrap/Card';
-import { useContext,  useState, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { myContext } from './CartContext'
 import {
    BsTrashFill,
@@ -8,15 +8,12 @@ import {
 import Table from 'react-bootstrap/Table';
 import Image from 'react-bootstrap/Image';
 import {Link} from 'react-router-dom'
-
+import "../style.css"
 
 
 function Cart(props) {
 
   const {cart,removeItem,setHayProductos,hayProductos, precioTotal, setprecioTotal } = useContext(myContext) 
-
-  
-
 
   useEffect(() => {
     //Calcula el precio total de los productos en el cart y lo setea en el estado
@@ -38,8 +35,6 @@ function Cart(props) {
     else 
       setHayProductos(true)
   }
-
-
 
 
   return (
@@ -97,12 +92,15 @@ function Cart(props) {
         :
         <section className= 'container-fluid' id="productos">
               <h1 className='text-start fs-2 fw-bold text-decoration-underline row justify-content-center mb-5 mt-5'>NO HAY ITEMS EN EL CARRITO</h1>
-              <Link className='btn btn-primary' to='/' id='btn-detalle'>Volver al inicio</Link>
+              <Link className='btn btn-secondary' to='/' id='btn-detalle'>Volver al inicio</Link>
         </section>
         }    
 
       {hayProductos ?
-              <Link className='btn btn-secondary' to='/EndBuy' id='btn-detalle'>Finalizar compra</Link>
+              <div className="botonesCarrito">
+                  <Link className='btn btn-secondary' to='/' id='btn-detalle'>Seguir Comprando</Link>
+                  <Link className='btn btn-secondary' to='/EndBuy' id='btn-detalle'>Finalizar compra</Link>
+              </div>
               :
               <div></div>
       }

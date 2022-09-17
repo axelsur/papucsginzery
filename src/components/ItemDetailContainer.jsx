@@ -1,20 +1,15 @@
 import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
-
-import {
-    /* BsCartPlus, */
-}from "react-icons/bs";
 import { db } from "../firebase.js";
 import { collection, getDoc, doc } from "firebase/firestore";
+import Swal from 'sweetalert2'
+
 
 const ItemDetailContainer = (props) => {
 
   const [item, setItem] = useState({})
   const {idProducto} = useParams()
-  /* const idProducto = props.itemid */
-
-  /* const [showBuy, setShowBuy] = useState(false); */
 
   useEffect(() => {
 
@@ -30,7 +25,11 @@ const ItemDetailContainer = (props) => {
       setItem(objeto)
     })
     .catch((err=>{
-      console.log(err)  
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se pudo cargar el detalle del Producto.',
+      })  
     }))
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,8 +37,7 @@ const ItemDetailContainer = (props) => {
 
   return (
     <>
-    {/* <BsCartPlus onClick={() => setShowBuy(true)} /> */}
-    <ItemDetail /* show={showBuy} */ item={item} /* onHide={() => setShowBuy(false)} *//> 
+      <ItemDetail item={item}/> 
     </>
   )
 }   

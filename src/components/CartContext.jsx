@@ -21,6 +21,7 @@ export default function CartContext({ children }) {
     //Verifica si hay productos para el widget navbar.
     const [hayProductos, setHayProductos] = useState(false)
 
+    //Precio Total del Pedido.
     const [precioTotal, setprecioTotal] = useState(0)
 
 
@@ -35,7 +36,6 @@ export default function CartContext({ children }) {
         }
 
     }
-
 
     // Agregar item al carrito.
     const addItem=(itemCart,quantity)=>
@@ -99,7 +99,6 @@ export default function CartContext({ children }) {
             
 
     }
-
 
 
   return (

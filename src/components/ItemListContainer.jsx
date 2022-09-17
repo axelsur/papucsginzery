@@ -5,8 +5,7 @@ import {TituloILC} from '../styledcomponents'
 import Spinner from 'react-bootstrap/Spinner';
 import { db } from "../firebase.js";
 import { collection, getDocs, query, where } from "firebase/firestore";
-
-
+import Swal from 'sweetalert2';
 
 
 const ItemListContainer = (props) => {
@@ -48,7 +47,11 @@ const ItemListContainer = (props) => {
 
     })
     .catch( err=>{
-        console.log(err)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se pudieron cargar los Productos',
+      })
     }, [idCategoria])
  
   // eslint-disable-next-line react-hooks/exhaustive-deps

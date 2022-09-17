@@ -7,13 +7,6 @@ import { db } from "../firebase.js";
 import Card from 'react-bootstrap/Card';
 
 
-/* import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row'; */
-
-
-
 export default function EndBuy() {
     
     const [name, setName] = useState('')
@@ -24,7 +17,7 @@ export default function EndBuy() {
     
     const {cart, precioTotal, clearCart} = useContext(myContext) 
    
-   function finCompra() {
+    function finCompra() {
       
         const date = new Date();
         let day = date.getDate();
@@ -50,15 +43,12 @@ export default function EndBuy() {
               confirmButtonText: `<a href="/" style="color:#000000; text-decoration: none;">Volver al Inicio</a>`
             })
             clearCart()
-            //setCompro(true)
-            
-        
         })
-  }
+    }
   
     return (
       
-        <>
+      <>
 
       <Card style={{ width: '60rem' }} className="m-auto align-self-center mt-5 mb-5 text-center">
             <Card.Header>Ingresa sus datos para finalizar la compra</Card.Header>
@@ -92,61 +82,8 @@ export default function EndBuy() {
            
          </Card.Body>
     </Card>
+    
+    </>
+  );
 
-{/* 
-        <div className="container">
-            <div className="row vh-100 justify-content-center align-items-center">
-                
-                <div className="col-auto bg-light p-5">
-                <h2>Datos de Envio</h2>
-                <Form noValidate validated={validated} onSubmit={handleSubmit} >
-                    <Row className="mb-3">
-                        <Form.Group as={Col} md="4" controlId="validationCustom01">
-                        <Form.Label>Nombre</Form.Label>
-                        <Form.Control
-                            required
-                            type={'text'}
-                            placeholder="Nombre"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                        <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
-                        </Form.Group>
-                        
-                        <Form.Group as={Col} md="4" controlId="validationCustom02">
-                        <Form.Label>Telefono</Form.Label>
-                        <Form.Control
-                            required
-                            type={'text'}
-                            placeholder="Telefono"
-                            value={tel}
-                            onChange={(e) => setTel(e.target.value)}
-                        />
-                        <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
-                        </Form.Group>
-                      
-                    </Row>
-                    
-                    <Row className="mb-3">
-                        <Form.Group as={Col} md="6" controlId="validationCustom03">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type={'text'} placeholder="Email" value={email} required onChange={(e) => setEmail(e.target.value)}/>
-                        <Form.Control.Feedback type="invalid">
-                            Ingrese un Email Valido.
-                        </Form.Control.Feedback>
-                        </Form.Group>
-                    </Row>
-                    
-                    <Button type="submit" onClick={finCompra}> Finalizar Compra </Button>
-                </Form>
-                    
-                </div>
-            </div>
-        </div>
- */
- }
-        
-        </>
-        
-      );
-    }
+}

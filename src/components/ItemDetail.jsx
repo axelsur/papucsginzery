@@ -43,106 +43,47 @@ function ItemDetail(props) {
 
   return (
     <>
+      <Card style={{ width: '60rem' }} className="m-auto align-self-center mt-5 mb-5 text-center">
+        <Card.Header>{props.item.nombre}</Card.Header>
+        <Card.Body>
 
-    <Card style={{ width: '60rem' }} className="m-auto align-self-center mt-5 mb-5 text-center">
-      <Card.Header>{props.item.nombre}</Card.Header>
-      <Card.Body>
+          <Modal.Body>
+            <Wrapper>
+              <ImgContainer>
+                <Image src={props.item.imgs} />
+              </ImgContainer>
+              <InfoContainer>
+                <Desc>
+                  {props.item.descripcion}
+                </Desc>
+                <Price>$ {props.item.precio}</Price>
+                <StockContainer>
+                  <Stock>
+                    <StockTitle>Stock: </StockTitle>
+                    <StockDetails> {props.item.stock} </StockDetails>
+                  </Stock>
+                  <Stock>
+                    <StockTitle>Tamaño: </StockTitle>
+                    <FilterSize>
+                      <FilterSizeOption>38</FilterSizeOption>
+                      <FilterSizeOption>40</FilterSizeOption>
+                      <FilterSizeOption>42</FilterSizeOption>
+                      <FilterSizeOption>44</FilterSizeOption>
+                      <FilterSizeOption>46</FilterSizeOption>
+                    </FilterSize> 
+                  </Stock>
+                </StockContainer>
 
-        <Modal.Body>
-          <Wrapper>
-            <ImgContainer>
-              <Image src={props.item.imgs} />
-            </ImgContainer>
-            <InfoContainer>
-              <Desc>
-                {props.item.descripcion}
-              </Desc>
-              <Price>$ {props.item.precio}</Price>
-              <StockContainer>
-                <Stock>
-                  <StockTitle>Stock: </StockTitle>
-                  <StockDetails> {props.item.stock} </StockDetails>
-                </Stock>
-                <Stock>
-                  <StockTitle>Tamaño: </StockTitle>
-                  <FilterSize>
-                    <FilterSizeOption>38</FilterSizeOption>
-                    <FilterSizeOption>40</FilterSizeOption>
-                    <FilterSizeOption>42</FilterSizeOption>
-                    <FilterSizeOption>44</FilterSizeOption>
-                    <FilterSizeOption>46</FilterSizeOption>
-                   </FilterSize> 
-                </Stock>
-              </StockContainer>
+                {hideButton ?  <Link className='btn btn-primary' to='/cart' onClick={finCompra}>Terminar compra</Link>
+                            :  <ItemCount stock={props.item.stock} initial={0} onAdd={onAdd} />} 
 
-              {hideButton ?  <Link className='btn btn-primary' to='/cart' onClick={finCompra}>Terminar compra</Link>
-                          :  <ItemCount stock={props.item.stock} initial={0} onAdd={onAdd} />} 
-
-            </InfoContainer>
-          </Wrapper>
-        </Modal.Body>
-
-
-      </Card.Body>
-    </Card>
+              </InfoContainer>
+            </Wrapper>
+          </Modal.Body>
 
 
-
-    {/* 
-     <Modal
-        show="true"
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            {props.item.nombre}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Wrapper>
-            <ImgContainer>
-              <Image src={props.item.imgs} />
-            </ImgContainer>
-            <InfoContainer>
-              <Desc>
-                {props.item.descripcion}
-              </Desc>
-              <Price>$ {props.item.precio}</Price>
-              <StockContainer>
-                <Stock>
-                  <StockTitle>Stock: </StockTitle>
-                  <StockDetails> {props.item.stock} </StockDetails>
-                </Stock>
-                <Stock>
-                  <StockTitle>Tamaño: </StockTitle>
-                  <FilterSize>
-                    <FilterSizeOption>38</FilterSizeOption>
-                    <FilterSizeOption>40</FilterSizeOption>
-                    <FilterSizeOption>42</FilterSizeOption>
-                    <FilterSizeOption>44</FilterSizeOption>
-                    <FilterSizeOption>46</FilterSizeOption>
-                  </FilterSize>
-                </Stock>
-              </StockContainer>
-
-              <ItemCount stock={props.item.stock} initial={0} onAdd={addCart} />
-
-            </InfoContainer>
-          </Wrapper>
-
-
-
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={props.onHide}>Cerrar</Button>{' '}
-        </Modal.Footer>
-      </Modal> */}
-
-
-      
+        </Card.Body>
+      </Card>
     </>
   );
 }

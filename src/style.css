@@ -10,6 +10,22 @@
     margin-left: 6px;
 }
 
+.botonesCarrito{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.navlink:hover{
+    color:grey;
+}
+
+.linkdropdown:hover{
+    color: grey;
+}
+
 .logo h2{
     margin-top: 7px;
     margin-left: 10px;
@@ -23,5 +39,19 @@
     margin: 0 auto;
     max-width: 80%;
     max-height: 100%;
+}
+
+.footlink{
+    display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: white;
+  width: 50%;
+  margin-bottom: 10px;
+  text-decoration:none;
+}
+
+.footlink:hover{
+    color:grey;
 }
 
